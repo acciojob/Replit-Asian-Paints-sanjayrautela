@@ -5,6 +5,7 @@ body {
     align-items: center;
     font-family: Arial, sans-serif;
     margin: 50px;
+	
 }
 
 .grid-container {
@@ -16,7 +17,7 @@ body {
 .grid-item {
     width: 100px;
     height: 100px;
-    background-color: transparent;
+    background-color: rgb(255,0,0);
     border: 1px solid #000;
 	
 }
