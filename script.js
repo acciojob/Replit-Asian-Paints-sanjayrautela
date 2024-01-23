@@ -1,34 +1,32 @@
-//your JS code here. If required.
+// script.js
 document.addEventListener('DOMContentLoaded', function () {
+  const changeButton = document.getElementById('change_button');
+  const resetButton = document.getElementById('reset_button');
+  const gridContainer = document.getElementById('grid-container');
+
+  changeButton.addEventListener('click', function () {
+    const blockId = document.getElementById('block_id').value;
+    const colorValue = document.getElementById('colour_id').value;
+
+    const gridItem = document.getElementById(blockId);
+    if (gridItem) {
+      // Reset all grid items to transparent background
+      resetGrid();
+
+      // Change the background color of the selected grid item
+      gridItem.style.backgroundColor = colorValue;
+    }
+  });
+
+  resetButton.addEventListener('click', function () {
+    // Reset all grid items to transparent background
+    resetGrid();
+  });
+
+  function resetGrid() {
     const gridItems = document.querySelectorAll('.grid-item');
-    const blockIdInput = document.getElementById('block_id');
-    const colourInput = document.getElementById('colour_id');
-    const changeButton = document.getElementById('change_button');
-    const resetButton = document.getElementById('reset_button');
-
-    changeButton.addEventListener('click', function () {
-        const blockId = blockIdInput.value;
-        const selectedBlock = document.getElementById(blockId);
-
-        if (selectedBlock) {
-            gridItems.forEach(item => {
-                item.style.backgroundColor = 'transparent';
-            });
-
-            const colorValue = colourInput.value;
-            selectedBlock.style.backgroundColor = colorValue;
-        } else {
-            alert('Invalid Block ID');
-        }
+    gridItems.forEach(function (item) {
+      item.style.backgroundColor = '';
     });
-
-    resetButton.addEventListener('click', function () {
-        gridItems.forEach(item => {
-            item.style.backgroundColor = 'transparent';
-        });
-
-        blockIdInput.value = '';
-        colourInput.value = '#000000';
-    });
+  }
 });
-
